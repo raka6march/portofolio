@@ -110,3 +110,10 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 /* Three contact options, stacked on smaller screens. */
 .contact-links{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:900px){.contact-links{grid-template-columns:minmax(0,1fr)}}
+
+.experience-proof{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:24px;margin-top:28px;padding-top:28px;border-top:1px solid var(--line);align-items:start}
+.experience-proof figure{margin:0;padding:16px;background:var(--soft);border:1px solid var(--line);border-radius:12px}
+.experience-proof figure a{display:block}.experience-proof img{display:block;width:100%;height:auto}
+.experience-proof figcaption{margin-top:12px;font-size:.875rem;text-align:center;color:var(--muted)}
+.experience-proof-copy{min-width:0}.experience-proof-copy h4{font-size:1.15rem;margin:0 0 12px}.experience-proof-copy p{color:var(--muted);line-height:1.8;margin-bottom:18px}
+@media(max-width:680px){.experience-proof{grid-template-columns:minmax(0,1fr);gap:20px}}
