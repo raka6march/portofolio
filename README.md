@@ -2,7 +2,7 @@
 
 Complete static portfolio, with English website text, restored from the owner-provided `portofolio raka` folder.
 
-Includes profile and contact information, internship experience, five detailed project galleries, four certification/training cards, and a downloadable CV. Original screenshots, certificates, and PDF documents are preserved in their supplied language.
+Includes profile and contact information, internship experience, five detailed project galleries, five certification/training cards, and a downloadable CV. Original screenshots, certificates, and PDF documents are preserved in their supplied language.
 
 ## Edit and preview
 
