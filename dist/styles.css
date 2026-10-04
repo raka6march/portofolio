@@ -141,3 +141,23 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .certificate-footer span:last-child{flex-shrink:0;text-align:right}
 @media(max-width:1050px){.certificate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.certificate-grid{grid-template-columns:minmax(0,1fr);gap:20px}.certificate-grid .certificate-content{padding:22px}.certificate-grid .certificate-card figure a{height:240px}}
+
+/* Subtle interactive feedback with native links and accessible disclosure controls. */
+.button,.project-link,.hero-contact a,.header nav a,.contact-links a,summary{transition:background-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease}
+.header nav a{position:relative;padding-block:8px}
+.header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.header nav a[aria-current="location"]{color:var(--accent);font-weight:700}
+.header nav a[aria-current="location"]::after{transform:scaleX(1)}
+.project-details summary,.certificate-details summary{border-radius:6px;min-height:44px}
+.project-details summary:active,.certificate-details summary:active{background:var(--soft)}
+.button:active,.contact-links a:active{transform:scale(.98)}
+.project-link:active{opacity:.75}
+@media(hover:hover){
+ .button:hover{transform:translateY(-2px);box-shadow:0 6px 16px #20304420}
+ .contact-links a:hover{transform:translateY(-3px);box-shadow:0 8px 20px #20304414}
+ .header nav a:hover::after{transform:scaleX(1)}
+ .project-details summary:hover,.certificate-details summary:hover{background:var(--soft)}
+ .project-link:hover .external-link-icon{transform:translate(2px,-2px)}
+}
+.external-link-icon{transition:transform .18s ease}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button:active,.contact-links a:active,.button:hover,.contact-links a:hover,.project-link:hover .external-link-icon{transform:none}}
