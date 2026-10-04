@@ -161,3 +161,12 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 }
 .external-link-icon{transition:transform .18s ease}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button:active,.contact-links a:active,.button:hover,.contact-links a:hover,.project-link:hover .external-link-icon{transform:none}}
+
+/* Direct paths for recruiters, inspired by the reference's opening shortcuts. */
+.hero-shortcuts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;font-size:.875rem}
+.hero-shortcuts a{display:inline-flex;align-items:center;gap:14px;padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:var(--surface);transition:background .2s ease,transform .2s ease,border-color .2s ease}
+.hero-shortcuts a:hover{background:var(--soft);border-color:var(--accent)}
+.hero-shortcuts a:active{transform:scale(.98)}
+.certificate-grid .certificate-card{transition:box-shadow .25s ease,border-color .25s ease}
+@media(hover:hover){.certificate-grid .certificate-card:hover{box-shadow:0 12px 28px #20304418;border-color:var(--accent)}}
+@media(prefers-reduced-motion:reduce){.hero-shortcuts a:active{transform:none}}
