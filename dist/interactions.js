@@ -42,7 +42,7 @@
         reveal(target, Math.min(index++ * 90, 180));
       });
     }, { threshold: 0.06 });
-    document.querySelectorAll('.hero-copy, .portrait, .about, .section-heading, .experience-card, .project, .certificate-card, .contact-section').forEach(el => observer.observe(el));
+    document.querySelectorAll('.hero-copy, .portrait, .about, .section-heading, .experience-card, .activity-card, .project, .certificate-card, .contact-section').forEach(el => observer.observe(el));
   }
   // Reintroduce the destination when revisiting it from a navigation shortcut.
   addEventListener('hashchange', () => {
