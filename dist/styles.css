@@ -187,3 +187,10 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .activity-card + .activity-card{margin-top:20px}
 @media(max-width:800px){.activity-card{grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:18px}.activity-card figure a{height:170px}.activities{padding-block:40px}}
 @media(max-width:600px){.activity-card{grid-template-columns:minmax(0,1fr);gap:16px;padding:16px}.activity-card figure{width:100%;max-width:300px;justify-self:center}.activity-card figure a{height:180px}.activity-content h3{font-size:1.3rem}}
+
+/* Separate professional contact from personal social profiles. */
+.contact-group-title{font-size:1.1rem;line-height:1.4;margin:24px 0 14px;color:var(--text)}
+.social-contact{margin-top:30px;padding-top:6px;border-top:1px solid var(--line)}
+.social-contact-intro{color:var(--muted);font-size:.95rem;line-height:1.6;margin:0 0 16px}
+.contact-links.social-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:600px){.contact-links.social-links{grid-template-columns:minmax(0,1fr)}}
