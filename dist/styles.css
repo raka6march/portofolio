@@ -175,8 +175,8 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .activities{padding-block:56px}
 .activity-card{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:24px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;padding:20px}
 .activity-card figure{margin:0;min-width:0}
-.activity-card figure a{display:flex;align-items:center;justify-content:center;height:210px;background:#edf2fa;border-radius:8px;overflow:hidden}
-.activity-card img{display:block;width:100%;height:100%;object-fit:contain;border-radius:8px}
+.activity-card figure a{display:block;border-radius:8px;overflow:hidden}
+.activity-card img{display:block;width:100%;height:auto;border-radius:8px}
 .activity-card figcaption{font-size:.8rem;line-height:1.4;color:var(--muted);padding-top:8px}
 .activity-content{min-width:0;align-self:center}
 .activity-content h3{font-size:1.4rem;line-height:1.3;margin:8px 0}
@@ -185,8 +185,8 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .activity-content .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
 .activity-content .project-link{display:inline-flex;align-items:center;gap:8px}
 .activity-card + .activity-card{margin-top:20px}
-@media(max-width:800px){.activity-card{grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:18px}.activity-card figure a{height:170px}.activities{padding-block:40px}}
-@media(max-width:600px){.activity-card{grid-template-columns:minmax(0,1fr);gap:16px;padding:16px}.activity-card figure{width:100%;max-width:300px;justify-self:center}.activity-card figure a{height:180px}.activity-content h3{font-size:1.3rem}}
+@media(max-width:800px){.activity-card{grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:18px}.activities{padding-block:40px}}
+@media(max-width:600px){.activity-card{grid-template-columns:minmax(0,1fr);gap:16px;padding:16px}.activity-card figure{width:100%;max-width:300px;justify-self:center}.activity-content h3{font-size:1.3rem}}
 
 /* Separate professional contact from personal social profiles. */
 .contact-group-title{font-size:1.1rem;line-height:1.4;margin:24px 0 14px;color:var(--text)}
