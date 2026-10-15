@@ -194,3 +194,13 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .social-contact-intro{color:var(--muted);font-size:.95rem;line-height:1.6;margin:0 0 16px}
 .contact-links.social-links{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:600px){.contact-links.social-links{grid-template-columns:minmax(0,1fr)}}
+
+/* Fit every image frame to its source proportions, without cropping or letterboxing. */
+.hero .portrait img,.project-image img{height:auto;aspect-ratio:auto;object-fit:contain}
+.project .project-gallery,.project:last-child .project-gallery,.project-gallery:has(figure:nth-child(2)){height:auto;grid-auto-rows:auto;align-content:start;align-items:start}
+.project-gallery figure,.project-gallery figure+figure{display:block}
+.project-gallery figure a{display:block;flex:none;height:auto;background:transparent}
+.project .project-gallery img,.project:last-child .project-gallery img,.project-gallery:has(figure:nth-child(2)) img{height:auto;max-height:none;aspect-ratio:auto}
+.certificate-grid .certificate-card figure a{display:block;height:auto}
+.certificate-grid .certificate-card img{height:auto;max-height:none;aspect-ratio:auto}
+.experience-logo{min-height:0}
