@@ -204,3 +204,5 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .certificate-grid .certificate-card figure a{display:block;height:auto}
 .certificate-grid .certificate-card img{height:auto;max-height:none;aspect-ratio:auto}
 .experience-logo{min-height:0}
+
+.research-activity figure{width:100%;max-width:200px;justify-self:center}
