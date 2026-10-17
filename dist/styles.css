@@ -206,3 +206,10 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .experience-logo{min-height:0}
 
 .research-activity figure{width:100%;max-width:200px;justify-self:center}
+
+/* Group projects and credentials by professional focus. */
+.portfolio-group + .portfolio-group{margin-top:40px}
+.portfolio-group-heading{margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.portfolio-group-heading h3{font-size:1.3rem;line-height:1.4;letter-spacing:-.02em;color:var(--text)}
+.portfolio-group-heading p{margin-top:6px;color:var(--muted);font-size:.94rem;line-height:1.6}
+@media(max-width:680px){.portfolio-group + .portfolio-group{margin-top:30px}.portfolio-group-heading{margin-bottom:16px}}
