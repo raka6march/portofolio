@@ -9,24 +9,32 @@
     addEventListener('resize', updateHeaderOffset);
     if ('ResizeObserver' in window) new ResizeObserver(updateHeaderOffset).observe(header);
   }
-  const navLinks = [...document.querySelectorAll('.header nav a[href^="#"]')];
-  const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  let scheduled = false;
-  const updateNavigation = () => {
-    scheduled = false;
-    const line = Math.max((header ? header.getBoundingClientRect().bottom : 0) + 24, Math.min(innerHeight * 0.3, 220));
-    let current = null;
-    sections.forEach(section => { if (section.getBoundingClientRect().top <= line) current = section; });
-    navLinks.forEach(link => {
-      if (current && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-  };
-  addEventListener('scroll', () => {
-    if (!scheduled) { scheduled = true; requestAnimationFrame(updateNavigation); }
-  }, { passive: true });
-  addEventListener('resize', updateNavigation);
-  updateNavigation();
+  // Keep old single-page links working after the move to separate pages.
+  const legacyRoutes = { pengalaman: 'experience.html', pendidikan: 'experience.html', proyek: 'projects.html', sertifikasi: 'certifications.html', kegiatan: 'activities.html', contact: 'contact.html' };
+  const file = location.pathname.split('/').pop() || 'index.html';
+  const fragment = location.hash.slice(1);
+  if (file === 'index.html' && legacyRoutes[fragment]) {
+    location.replace(legacyRoutes[fragment] + location.hash);
+    return;
+  }
+  // Native cross-document transitions where supported; a short fallback elsewhere.
+  let navigating = false;
+  const nativeTransitions = CSS.supports('view-transition-name', 'none') && 'onpagereveal' in window;
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target || link.hasAttribute('download')) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || !/\.html$/.test(url.pathname) || url.pathname === location.pathname || reduced.matches || nativeTransitions) return;
+    event.preventDefault();
+    if (navigating) return;
+    navigating = true;
+    document.body.classList.add('page-leaving');
+    setTimeout(() => location.assign(url.href), 160);
+  });
+  addEventListener('pageshow', () => {
+    navigating = false;
+    document.body.classList.remove('page-leaving');
+  });
 
   // Reveal each group gradually; content remains available if scripting is unavailable.
   const reveals = new Set();
