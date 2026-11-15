@@ -1,11 +1,20 @@
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const header = document.querySelector('.header');
+  const updateHeaderOffset = () => {
+    document.documentElement.style.setProperty('--navigation-offset', `${Math.ceil(header.getBoundingClientRect().height) + 16}px`);
+  };
+  if (header) {
+    updateHeaderOffset();
+    addEventListener('resize', updateHeaderOffset);
+    if ('ResizeObserver' in window) new ResizeObserver(updateHeaderOffset).observe(header);
+  }
   const navLinks = [...document.querySelectorAll('.header nav a[href^="#"]')];
   const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   let scheduled = false;
   const updateNavigation = () => {
     scheduled = false;
-    const line = Math.min(innerHeight * 0.3, 220);
+    const line = Math.max((header ? header.getBoundingClientRect().bottom : 0) + 24, Math.min(innerHeight * 0.3, 220));
     let current = null;
     sections.forEach(section => { if (section.getBoundingClientRect().top <= line) current = section; });
     navLinks.forEach(link => {
