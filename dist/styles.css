@@ -213,3 +213,18 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .portfolio-group-heading h3{font-size:1.3rem;line-height:1.4;letter-spacing:-.02em;color:var(--text)}
 .portfolio-group-heading p{margin-top:6px;color:var(--muted);font-size:.94rem;line-height:1.6}
 @media(max-width:680px){.portfolio-group + .portfolio-group{margin-top:30px}.portfolio-group-heading{margin-bottom:16px}}
+
+/* Education follows professional experience. */
+.education{padding-block:56px;border-bottom:1px solid var(--line)}
+.education-card{display:grid;grid-template-columns:72px minmax(0,1fr);gap:22px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.education-card+.education-card{margin-top:18px}
+.education-logo{width:72px;height:auto;border-radius:6px}
+.education-heading{display:flex;justify-content:space-between;gap:16px;align-items:start}
+.education-heading h3{font-size:1.3rem;line-height:1.4;letter-spacing:-.02em}
+.education-heading span{font-size:.875rem;color:var(--muted);white-space:nowrap}
+.education-card p{color:var(--muted);line-height:1.7;margin-top:10px}
+.education-card .education-degree{color:var(--accent);font-weight:600}
+.education-grade{font-weight:600}
+@media(max-width:680px){.education{padding-block:40px}.education-card{grid-template-columns:52px minmax(0,1fr);gap:14px;padding:18px}.education-logo{width:52px}.education-heading{flex-direction:column;gap:6px}}
+
+.education-logo-caption{max-width:72px;margin-top:6px;font-size:.65rem;line-height:1.4;color:var(--muted)}
