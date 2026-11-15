@@ -230,3 +230,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-of
 .education-logo-caption{max-width:72px;margin-top:6px;font-size:.65rem;line-height:1.4;color:var(--muted)}
 
 .education-details{margin-top:18px;border-top:1px solid var(--line);padding-top:8px}.education-document{padding-top:8px}.education-document>a{display:block;max-width:420px;margin-top:16px}.education-document img{display:block;width:100%;height:auto;border-radius:8px}
+
+.education-group-title{font-size:1.2rem;line-height:1.4;letter-spacing:-.02em;margin:0 0 18px;color:var(--accent)}
+.education-group-boarding{margin-top:32px;padding-top:28px;border-top:2px solid var(--line)}
+@media(max-width:680px){.education-group-boarding{margin-top:24px;padding-top:22px}}
