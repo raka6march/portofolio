@@ -100,3 +100,38 @@
     reduced.addEventListener('change', () => { if (animation) finish(); });
   });
 })();
+
+(() => {
+  const tabs = [...document.querySelectorAll('.preview-tabs [role="tab"]')];
+  const selectTab = tab => {
+    tabs.forEach(item => {
+      const active = item === tab;
+      item.setAttribute('aria-selected', String(active));
+      item.tabIndex = active ? 0 : -1;
+      document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+    });
+  };
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      if (next !== undefined) { event.preventDefault(); selectTab(tabs[next]); tabs[next].focus(); }
+    });
+  });
+  const filter = document.querySelector('.category-filter');
+  if (filter) {
+    filter.hidden = false;
+    const buttons = [...filter.querySelectorAll('button')];
+    const groups = [...document.querySelectorAll('.portfolio-group')];
+    const show = category => {
+      buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.category === category)));
+      groups.forEach(g => { g.hidden = category !== 'all' && g.getAttribute('aria-labelledby') !== category; });
+    };
+    buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.category)));
+    addEventListener('hashchange', () => show('all'));
+  }
+})();
